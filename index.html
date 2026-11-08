@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123047">
+  <meta name="description" content="JobReady SA helps you prepare your CV, practise interviews and track job applications.">
+  <title>JobReady SA</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">JR</span><span>JobReady <b>SA</b></span></div>
+  <span class="tag">YOUR CAREER TOOLKIT</span>
+</header>
+<main>
+  <section id="home" class="screen active">
+    <div class="hero">
+      <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+      <h1>Prepare better.<br><em>Apply with confidence.</em></h1>
+      <p class="hero-copy">Practical tools to help you get ready for your next opportunity.</p>
+      <div class="hero-actions"><button class="btn primary" data-go="cv">Build my CV</button><button class="btn ghost" data-go="interview">Practise interviews</button></div>
+    </div>
+    <div class="section-head"><div><p class="eyebrow">YOUR TOOLKIT</p><h2>What do you need today?</h2></div></div>
+    <div class="tiles">
+      <button class="tile" data-go="cv"><span class="tile-icon">▤</span><strong>CV Builder</strong><small>Create and print a professional CV.</small><span class="tile-link">Open tool →</span></button>
+      <button class="tile" data-go="letter"><span class="tile-icon">✉</span><strong>Cover Letter</strong><small>Draft a letter for a job application.</small><span class="tile-link">Open tool →</span></button>
+      <button class="tile" data-go="interview"><span class="tile-icon">◎</span><strong>Interview Coach</strong><small>Practise common interview questions.</small><span class="tile-link">Open tool →</span></button>
+      <button class="tile" data-go="tracker"><span class="tile-icon">▣</span><strong>Application Tracker</strong><small>Keep track of the jobs you apply for.</small><span class="tile-link">Open tool →</span></button>
+    </div>
+    <div class="notice"><strong>Your privacy matters.</strong><span>Your entries are stored in this browser on this device in this prototype. Avoid using a shared device, and export or back up anything important.</span></div>
+  </section>
+
+  <section id="cv" class="screen">
+    <div class="page-heading"><button class="back" data-go="home">← Home</button><p class="eyebrow">TOOL 01</p><h1>CV Builder</h1><p>Enter your details, preview your CV, then use your browser's Print option to save it as a PDF.</p></div>
+    <form id="cvForm" class="panel">
+      <h2>Personal details</h2>
+      <div class="field"><label for="fullName">Full name</label><input id="fullName" autocomplete="name" placeholder="e.g. Thandi Mokoena"></div>
+      <div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+      <div class="field"><label for="phone">Phone number</label><input id="phone" autocomplete="tel" placeholder="e.g. 071 234 5678"></div>
+      <div class="field"><label for="location">City / province</label><input id="location" placeholder="e.g. Johannesburg, Gauteng"></div>
+      <div class="field"><label for="summary">Professional profile</label><textarea id="summary" rows="3" placeholder="Write 2–4 sentences about your strengths and the work you are seeking."></textarea></div>
+      <h2>Experience and education</h2>
+      <div class="field"><label for="experience">Work experience</label><textarea id="experience" rows="5" placeholder="Job title — Employer — Dates&#10;Describe your responsibilities and achievements."></textarea></div>
+      <div class="field"><label for="education">Education</label><textarea id="education" rows="3" placeholder="Qualification — Institution — Year"></textarea></div>
+      <div class="field"><label for="skills">Skills</label><textarea id="skills" rows="3" placeholder="Communication, teamwork, customer service..."></textarea></div>
+      <div class="actions"><button class="btn primary" type="submit">Save CV details</button><button class="btn secondary" type="button" id="previewCV">Preview / Print CV</button></div>
+      <p class="help" id="cvStatus" aria-live="polite">Your CV details stay on this device in this prototype.</p>
+    </form>
+    <div id="cvPreview" class="panel preview hidden"></div>
+  </section>
+
+  <section id="letter" class="screen">
+    <div class="page-heading"><button class="back" data-go="home">← Home</button><p class="eyebrow">TOOL 02</p><h1>Cover Letter Builder</h1><p>Build a simple, editable starting point for a specific role.</p></div>
+    <form id="letterForm" class="panel">
+      <div class="field"><label for="letterName">Your name</label><input id="letterName" placeholder="Your full name"></div>
+      <div class="field"><label for="employer">Employer / company</label><input id="employer" placeholder="Company name"></div>
+      <div class="field"><label for="role">Position you're applying for</label><input id="role" placeholder="Job title"></div>
+      <div class="field"><label for="strengths">Your relevant skills or experience</label><textarea id="strengths" rows="4" placeholder="Mention skills, experience or achievements relevant to this role."></textarea></div>
+      <button class="btn primary" type="submit">Generate editable draft</button>
+    </form>
+    <div id="letterOutput" class="panel hidden">
+      <div class="section-head"><h2>Your draft</h2><button class="btn small secondary" id="copyLetter">Copy text</button></div>
+      <textarea id="letterText" rows="13"></textarea>
+      <p class="help">Review and personalise every detail before sending. Do not include claims you cannot support.</p>
+    </div>
+  </section>
+
+  <section id="interview" class="screen">
+    <div class="page-heading"><button class="back" data-go="home">← Home</button><p class="eyebrow">TOOL 03</p><h1>Interview Coach</h1><p>Practise answering common interview questions. Use the prompts to structure your own truthful examples.</p></div>
+    <div class="panel">
+      <div class="question-meta"><span id="questionCount">QUESTION 1 OF 8</span><span class="pill">Practice</span></div>
+      <h2 id="questionText"></h2>
+      <p id="questionTip" class="tip"></p>
+      <div class="field"><label for="answerBox">Your practice answer</label><textarea id="answerBox" rows="5" placeholder="Write your answer here..."></textarea></div>
+      <div class="actions"><button class="btn secondary" id="prevQuestion">Previous</button><button class="btn primary" id="nextQuestion">Next question</button></div>
+      <p class="help" id="answerStatus" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section id="tracker" class="screen">
+    <div class="page-heading"><button class="back" data-go="home">← Home</button><p class="eyebrow">TOOL 04</p><h1>Application Tracker</h1><p>Keep a private record of your job applications and follow-ups.</p></div>
+    <form id="trackerForm" class="panel">
+      <div class="field"><label for="trackCompany">Company / employer</label><input id="trackCompany" required placeholder="Company name"></div>
+      <div class="field"><label for="trackRole">Job title</label><input id="trackRole" required placeholder="Position"></div>
+      <div class="field"><label for="trackDate">Date applied</label><input id="trackDate" type="date" required></div>
+      <div class="field"><label for="trackStatus">Status</label><select id="trackStatus"><option>Applied</option><option>Interview</option><option>Follow-up needed</option><option>Offer received</option><option>Unsuccessful</option></select></div>
+      <div class="field"><label for="trackNotes">Notes (optional)</label><textarea id="trackNotes" rows="2" placeholder="Contact person, follow-up date, notes..."></textarea></div>
+      <button class="btn primary" type="submit">Add application</button>
+    </form>
+    <div class="section-head"><h2>Your applications</h2><span class="count" id="applicationCount">0</span></div>
+    <div id="applicationList" class="application-list"><div class="empty">No applications added yet.</div></div>
+  </section>
+
+  <section id="about" class="screen">
+    <div class="page-heading"><button class="back" data-go="home">← Home</button><p class="eyebrow">ABOUT</p><h1>JobReady SA</h1><p>Practical career preparation tools, designed with South African job seekers in mind.</p></div>
+    <div class="panel">
+      <h2>Prototype notice</h2>
+      <p>This is an early prototype. It does not provide verified job vacancies, recruitment services or guaranteed employment outcomes.</p>
+      <h2>Privacy</h2>
+      <p>Information entered in this version is saved locally in your browser using device storage. Clearing browser data may erase it. Do not use this prototype on a shared device for sensitive personal information.</p>
+      <h2>Feedback</h2>
+      <p>Tell the developer which tools are useful, confusing or missing. This prototype does not yet include accounts, cloud backup, advertising or payments.</p>
+    </div>
+  </section>
+</main>
+<nav class="bottom-nav" aria-label="Main navigation">
+  <button class="nav-item active" data-go="home"><span>⌂</span>Home</button>
+  <button class="nav-item" data-go="cv"><span>▤</span>CV</button>
+  <button class="nav-item" data-go="interview"><span>◎</span>Practice</button>
+  <button class="nav-item" data-go="tracker"><span>▣</span>Tracker</button>
+  <button class="nav-item" data-go="about"><span>ⓘ</span>About</button>
+</nav>
+<script src="app.js"></script>
+</body>
+</html>
